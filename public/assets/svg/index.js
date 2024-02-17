@@ -1,0 +1,11 @@
+export { ReactComponent as SvgBreadcrumbs } from './breadcrumbs.svg';
+export { ReactComponent as SvgBreadcrumbsClose } from './breadcrumbs-close.svg';
+export { ReactComponent as SvgChart } from './chart.svg';
+export { ReactComponent as Svgbnymellon } from './bnymellon.svg';
+export { ReactComponent as Svgblackrock } from './blackrock.svg';
+export { ReactComponent as Svgmoneygram } from './moneygram.svg';
+export { ReactComponent as Svgvisa } from './visa.svg';
+export { ReactComponent as Svgstripe } from './stripe.svg';
+export { ReactComponent as Svgworldpay } from './worldpay.svg';
+export { ReactComponent as SvgFAQs } from './FAQs.svg';
+export { ReactComponent as SvgDropDown } from './Drop Down.svg';

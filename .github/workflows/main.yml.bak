@@ -1,0 +1,63 @@
+name: Build and synk 
+
+on: 
+ # pull_request:
+ push:
+    branches: [ "main" ]
+
+env:
+  AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: prod-nexuspro-frontend                  # set this to your Amazon ECR repository name
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  backup_to_codecommit:
+
+    runs-on: ubuntu-latest
+    environment: test 
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: configure aws credentials
+        id: creds
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::339713187685:role/prod-github-oidc
+          role-session-name: githubrolesession
+          aws-region: ${{ env.AWS_REGION }}
+          output-credentials: true
+      
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          aws s3 cp s3://prod-nexus-env/dashboard/.env ./
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.prod .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Run Snyk to check Docker images for vulnerabilities
+        uses: snyk/actions/docker@master
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          args: --severity-threshold=high

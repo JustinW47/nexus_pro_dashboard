@@ -1,0 +1,38 @@
+name: Deploy To EKS
+
+on: 
+  push:
+    branches: [ "main" ]
+
+env:
+  AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: 339713187685.dkr.ecr.us-east-1.amazonaws.com/prod-nexuspro-frontend                   # set this to your Amazon ECR repository name
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  Deploy:
+
+    runs-on: ubuntu-latest
+    environment: test 
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Push changes to Argocd 
+        run: |
+             git  clone ${{ secrets.Argocd_Repo_Url }}
+             ls -la 
+             cd Argocd-EKS
+             sed -i '18s/.*/        image:\ CONTAINER_IMAGE/' manifest/deployment.yml
+             sed -i 's@CONTAINER_IMAGE@'"$ECR_REPOSITORY:${{ github.sha }}"'@' manifest/deployment.yml
+             git config --global user.email "niyaz@easydeploy.cloud"
+             git config --global user.name "niyaz1996"
+             git add .
+             git commit -m "latest build image ${{ github.sha }}" || echo "it is already up to date"
+             git push 
