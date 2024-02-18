@@ -110,8 +110,8 @@ export default function SelectBox({
   return (
     <div className="w-full">
       <span
-        className={`  text-base font-medium ${
-          mode ? 'text-[#ffffff]' : 'text-[#5F5F5F]'
+        className={`  text-sm font-normal ${
+          mode ? 'text-[#D9D9D9]' : 'text-[#5F5F5F]'
         }`}
       >
         {label}
@@ -127,7 +127,7 @@ export default function SelectBox({
           <>
             <div className="relative">
               <Listbox.Button
-                className={`relative w-full py-2 pl-3 pr-10 text-left border border-gray-400 rounded-md shadow-sm cursor-default text-neutral-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm ${
+                className={`relative w-full mt-2 py-2 pl-3 pr-10 text-left border border-gray-400 rounded-md shadow-sm cursor-default text-neutral-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm ${
                   mode ? 'bg-[#000000]' : 'bg-gray-300'
                 }`}
               >
@@ -139,7 +139,7 @@ export default function SelectBox({
                       className="flex-shrink-0 w-6 h-6 rounded-full"
                     />
                   )}
-                  <span className="block truncate text-neutral-400">
+                  <span className="block truncate text-[#B0B5BC]">
                     {selected?.name}
                   </span>
                 </div>

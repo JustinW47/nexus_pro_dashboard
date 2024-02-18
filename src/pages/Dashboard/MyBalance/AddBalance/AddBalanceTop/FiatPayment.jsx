@@ -14,14 +14,9 @@ const FiatPayment = () => {
   return (
     <BoardDashboard>
       <div className="relative flex flex-col flex-1 w-full gap-5">
-        <div className="flex flex-col items-center justify-between w-full xl:flex-row">
-          <div className="flex w-full xl:w-1/2">
+        <div className="flex flex-col items-center justify-between w-full lg:flex-row">
+          <div className="flex w-full lg:w-1/2">
             <div className="flex items-center w-full gap-3">
-              <img
-                src={process.env.PUBLIC_URL + '/assets/images/credit-card.png'}
-                alt="wing"
-                className="h-[70px] w-[70px]"
-              />
               <InputNumber
                 value={inputValue}
                 setValue={setinputValue}
@@ -35,7 +30,7 @@ const FiatPayment = () => {
             amount={inputValue}
             stripeRef={stripeButton}
           />
-          <div className="flex justify-start w-full xl:justify-end xl:w-1/3">
+          <div className="flex justify-start w-full lg:justify-end self-end lg:w-1/3">
             <ButtonDark
               label={t('addFunds')}
               onClickHandle={() => {

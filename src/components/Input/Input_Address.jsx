@@ -7,9 +7,9 @@ const InputAddress = ({ value, label, prefix, onInput }) => {
     setValue(input);
   };
   return (
-    <div className="relative flex flex-col">
-      <span className="absolute -top-5">{label ? label : null}</span>
-      <div className=" flex text-[#cccccc] font-semibold text-xl justify-between relative  rounded-2xl py-2 px-5 shadow-[0px_0px_3px_4px_rgba(0,0,0,0.1)] md:w-[350px] w-[200px] hover:shadow-[0px_0_5px_6px_rgba(0,0,0,0.1)] border border-[#e4e4e4]">
+    <div className="relative flex flex-col w-full gap-2">
+      <span className="text-sm text-[#D9D9D9] font-normal">{label ? label : null}</span>
+      <div className=" flex text-[#B0B5BC] font-normal text-xs justify-between relative  rounded-md py-3 px-5 border border-[#e4e4e4]">
         <input
           className="w-full outline-none "
           style={{

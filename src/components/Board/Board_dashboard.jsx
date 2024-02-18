@@ -1,6 +1,6 @@
 const BoardDashboard = ({ children }) => {
   return (
-    <div className="w-full p-10 border shadow-md border-[#128FC8] rounded-xl bg-inherit h-full">
+    <div className="w-full bg-inherit">
       {children}
     </div>
   );

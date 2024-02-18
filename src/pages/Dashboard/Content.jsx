@@ -34,19 +34,19 @@ const DashboardContent = () => {
 
   return (
     <div
-      className={`w-full overflow-y-auto h-[95%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out ${
+      className={`w-full overflow-y-auto h-[85%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out border-[#128FC8] border-2 ${
         mode ? 'bg-[#263238]' : 'bg-[#ffffff]'
-      } dark:text-gray py-5 text-[#128FC8] transition-all `}
+      } dark:text-gray py-5 text-[#128FC8] transition-all shadow-[4px_3px_13px_0px_rgba(18,143,200,1)] `}
     >
       <div className="flex flex-col w-full">
         <div className="flex flex-wrap items-center justify-center w-full gap-5">
           <div className="lg:w-[45%] w-full">
             <PriceChart
-              title="EU/US"
+              title="US/EU"
               from="USD"
-              rate={euusRate}
+              rate={useuRate}
               to="EUR"
-              loadingRate={euusInitialData?.isLoading}
+              loadingRate={useuInitialData?.isLoading}
               image_dark={
                 <img
                   src={
@@ -71,11 +71,11 @@ const DashboardContent = () => {
           </div>
           <div className="lg:w-[45%] w-full">
             <PriceChart
-              title="US/EU"
+              title="EU/US"
               from="EUR"
               to="USD"
-              rate={useuRate}
-              loadingRate={useuInitialData?.isLoading}
+              rate={euusRate}
+              loadingRate={euusInitialData?.isLoading}
               image_dark={
                 <img
                   src={

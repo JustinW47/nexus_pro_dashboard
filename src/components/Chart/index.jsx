@@ -359,7 +359,7 @@ const PriceChart = ({
               </span> */}
               <div className="relative mt-2 rounded-md shadow-sm  w-full">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 border border-1 border-r-0  border-[#6E7A8A]  rounded-l-md dark:bg-[#000000]">
-                  <span className="text-[#263238] dark:text-[#D9D9D9] text-sm py-2 lg:text-[16px]">EU/US</span>
+                  <span className="text-[#263238] dark:text-[#D9D9D9] text-sm py-2 lg:text-[16px]">{title}</span>
                 </div>
                 <input
                   type="text"

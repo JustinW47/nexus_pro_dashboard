@@ -27,6 +27,7 @@ const SideBar = ({ show, setter, changeLanguage }) => {
                 <SidebarItem
                   label={t(c?.label)}
                   icon={c?.icon}
+                  show={c?.show}
                   key={index}
                   onClickHandle={() => {
                     setPageNum(index);

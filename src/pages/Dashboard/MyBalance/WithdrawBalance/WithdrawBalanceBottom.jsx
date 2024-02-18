@@ -7,7 +7,7 @@ import { formatUnits } from 'ethers';
 import { SpinningCircles } from 'react-loading-icons';
 import { useTranslation } from 'react-i18next';
 
-const WithdrawBalanceRight = () => {
+const WithdrawBalanceBottom = () => {
   const { t } = useTranslation();
   const { mode } = useMode();
   const [historyData, setHistoryData] = useState({});
@@ -185,4 +185,4 @@ const WithdrawBalanceRight = () => {
   );
 };
 
-export default WithdrawBalanceRight;
+export default WithdrawBalanceBottom;

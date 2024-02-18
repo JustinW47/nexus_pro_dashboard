@@ -15,13 +15,14 @@ const InputNumber = ({ value, setValue, label, prefix }) => {
   return (
     <div className="relative flex flex-col w-full">
       <span
-        className={`  text-sm font-medium ${
-          mode ? 'text-[#ffffff]' : 'text-[#5F5F5F]'
+        className={`  text-sm font-normal ${
+          mode ? 'text-[#D9D9D9]' : 'text-[#5F5F5F]'
         }`}
       >
         {label ? label : null}
       </span>
-      <div className=" flex text-[#cccccc] w-full font-semibold text-xl justify-between relative  rounded py-2 px-5 shadow-[0px_0px_3px_4px_rgba(0,0,0,0.1)] hover:shadow-[0px_0_5px_6px_rgba(0,0,0,0.1)] border border-[#e4e4e4] ">
+      <div className=" flex text-[#B0B5BC] mt-2 w-full font-normal text-xs justify-between relative  rounded py-3 px-5 border border-[#6E7A8A] gap-2">
+        <span>{prefix ? prefix : null}</span>
         <input
           className="w-full outline-none"
           style={{
@@ -30,7 +31,6 @@ const InputNumber = ({ value, setValue, label, prefix }) => {
           value={value === null || value === undefined ? 0 : value}
           onChange={handleInputChange}
         />
-        <span>{prefix ? prefix : null}</span>
       </div>
     </div>
   );

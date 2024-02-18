@@ -8,7 +8,7 @@ import { SpinningCircles } from 'react-loading-icons';
 import useToast from 'hooks/useToast';
 import { useLogout } from 'hooks/useLogout';
 
-const AddBalanceRight = () => {
+const AddBalanceBottom = () => {
   const { mode } = useMode();
   const [historyData, setHistoryData] = useState({});
   const { userData } = useUserData();
@@ -186,4 +186,4 @@ const AddBalanceRight = () => {
   );
 };
 
-export default AddBalanceRight;
+export default AddBalanceBottom;

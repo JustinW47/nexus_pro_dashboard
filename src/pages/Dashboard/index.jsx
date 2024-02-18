@@ -41,15 +41,39 @@ export const dashboard_contents = ({ changeLanguage }) => {
       component: <MyBalance />
     },
     {
-      noSidebar: true,
+      show: false,
+      icon: (
+        <span>
+          <img
+            src={process.env.PUBLIC_URL + '/assets/svg/wallet.svg'}
+            alt="wing"
+          />
+        </span>
+      ),
       component: <AddBalance />
     },
     {
-      noSidebar: true,
+      show: false,
+      icon: (
+        <span>
+          <img
+            src={process.env.PUBLIC_URL + '/assets/svg/wallet.svg'}
+            alt="wing"
+          />
+        </span>
+      ),
       component: <WithdrawBalance />
     },
     {
-      noSidebar: true,
+      show: false,
+      icon: (
+        <span>
+          <img
+            src={process.env.PUBLIC_URL + '/assets/svg/wallet.svg'}
+            alt="wing"
+          />
+        </span>
+      ),
       component: <TransferFrom />
     },
     {
