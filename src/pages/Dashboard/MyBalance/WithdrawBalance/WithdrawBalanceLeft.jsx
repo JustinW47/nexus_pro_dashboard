@@ -122,7 +122,7 @@ const WithdrawBalanceLeft = () => {
         <div className="flex flex-col gap-3">
           <div
             className={`text-base font-semibold ${
-              mode ? 'text-[#ffffff]' : 'text-[#042433]'
+              mode ? 'text-[#ffffff]' : 'text-[#000000]'
             } `}
           >
             {t('sendTo')}
@@ -143,7 +143,7 @@ const WithdrawBalanceLeft = () => {
         <div className="relative flex flex-col gap-5">
           <div
             className={`${
-              mode ? 'text-[#ffffff]' : 'text-[#042433]'
+              mode ? 'text-[#ffffff]' : 'text-[#000000]'
             }   text-base font-semibold`}
           >
             {t('withdrawalAmount')}
@@ -168,7 +168,7 @@ const WithdrawBalanceLeft = () => {
         <div className="relative flex flex-wrap items-center gap-10">
           <div
             className={`${
-              mode ? 'text-[#ffffff]' : 'text-[#042433]'
+              mode ? 'text-[#ffffff]' : 'text-[#000000]'
             }   text-base font-semibold`}
           >
             {t('receiveAmount')}
@@ -186,7 +186,7 @@ const WithdrawBalanceLeft = () => {
         <div className="top-[323px]">
           <div
             className={` text-base font-semibold ${
-              mode ? 'text-[#ffffff]' : 'text-[#042433]'
+              mode ? 'text-[#ffffff]' : 'text-[#000000]'
             } `}
           >
             {t('address')}

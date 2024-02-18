@@ -13,9 +13,9 @@ const SideBar = ({ show, setter, changeLanguage }) => {
 
   return (
     <div
-      className={`inline-block dark font-bold rounded-2xl h-[85%] md:relative absolute text-xs uppercase leading-normal transition duration-150 ease-in-out border-[#128FC8] border-2 min-w-[230px] z-20 w-1/4 overflow-y-auto ${
-        mode ? 'bg-[#042433]' : 'bg-[#ffffff]'
-      } dark:text-gray text-[#128FC8] shadow-[4px_3px_13px_0px_rgba(18,143,200,1)]  ${appendClass}
+      className={`inline-block dark font-bold rounded-2xl h-[85%] md:relative absolute text-xs uppercase leading-normal transition duration-150 ease-in-out border-[#000000] border-2 min-w-[230px] z-20 w-1/4 overflow-y-auto ${
+        mode ? 'bg-[#000000]' : 'bg-[#ffffff]'
+      } dark:text-gray text-[#128FC8]   ${appendClass}
        transition-[margin-left] ease-in-out duration-500 left-0 z-40
       `}
     >

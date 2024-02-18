@@ -35,7 +35,7 @@ const DashboardContent = () => {
   return (
     <div
       className={`w-full overflow-y-auto h-[85%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out border-[#128FC8] border-2 ${
-        mode ? 'bg-[#042433]' : 'bg-[#ffffff]'
+        mode ? 'bg-[#263238]' : 'bg-[#ffffff]'
       } dark:text-gray py-5 text-[#128FC8] transition-all shadow-[4px_3px_13px_0px_rgba(18,143,200,1)] `}
     >
       <div className="flex flex-col w-full">

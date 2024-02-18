@@ -72,7 +72,7 @@ const WithdrawBalanceRight = () => {
                       </div>
                       <div
                         className={`text-base  ${
-                          !mode ? 'text-[#042433]' : 'text-[#ffffff]'
+                          !mode ? 'text-[#000000]' : 'text-[#ffffff]'
                         } font-semibold`}
                       >
                         {history.transaction_hash}
@@ -84,7 +84,7 @@ const WithdrawBalanceRight = () => {
                       </div>
                       <div
                         className={`left-[261px]  ${
-                          !mode ? 'text-[#042433]' : 'text-[#ffffff]'
+                          !mode ? 'text-[#000000]' : 'text-[#ffffff]'
                         } font-semibold text-base `}
                       >
                         {
@@ -107,7 +107,7 @@ const WithdrawBalanceRight = () => {
                       </div>
                       <div
                         className={`left-[86px]   text-right ${
-                          !mode ? 'text-[#042433]' : 'text-[#ffffff]'
+                          !mode ? 'text-[#000000]' : 'text-[#ffffff]'
                         } font-semibold text-base `}
                       >
                         {history.to_address}
@@ -119,7 +119,7 @@ const WithdrawBalanceRight = () => {
                       </div>
                       <div
                         className={`left-[284px]   text-right ${
-                          !mode ? 'text-[#042433]' : 'text-[#ffffff]'
+                          !mode ? 'text-[#000000]' : 'text-[#ffffff]'
                         } font-semibold text-base `}
                       >
                         ETH ETH(ERC 20)

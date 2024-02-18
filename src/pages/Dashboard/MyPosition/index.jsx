@@ -145,13 +145,15 @@ const MyPosition = () => {
   // console.log(data_?.data?.data?.data, '____', data);
   return (
     <div
-      className={`w-full overflow-y-auto h-[85%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out border-[#128FC8] border-2 ${
-        mode ? 'bg-[#042433]' : 'bg-[#ffffff]'
-      } dark:text-gray py-5 text-[#128FC8] transition-all shadow-[4px_3px_13px_0px_rgba(18,143,200,1)] `}
+      className={`w-full h-[85%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out ${
+        mode ? 'bg-[#263238]' : 'bg-[#EBF5FB]'
+      } dark:text-gray p-8 text-[#128FC8] transition-all`}
     >
-      <div className="flex flex-col w-full p-3">
+      <div className={`flex flex-col w-full rounded-2xl h-[100%] overflow-y-auto ${
+        mode ? 'bg-[#000000]' : 'bg-[#FFFFFF]'
+      }`}>
         {data_?.isFetched ? (
-          <Table columns={columns} data={data_?.data?.data?.data} />
+          <Table columns={columns} data={data_?.data?.data?.data} title={`position`} />
         ) : (
           <div className="flex items-center justify-center w-full h-screen -translate-y-1/4">
             <SpinningCircles stroke="#007bff" speed={1.5} fill="#007bff" />

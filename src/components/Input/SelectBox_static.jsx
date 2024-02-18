@@ -102,26 +102,25 @@ const SelectBox = ({ list, onChangeHandle, label, value }) => {
     >
       <span
         className={`  text-base font-medium ${
-          mode ? 'text-[#ffffff]' : 'text-[#5F5F5F]'
+          mode ? 'text-[#D9D9D9]' : 'text-[#000000]'
         }`}
       >
         {label}
       </span>
       <div
-        className={` cursor-pointer   ${
-          expanded ? ' bg-[#ebebeb] overflow-hidden ' : '  bg-inherit '
-        }
-        px-3.5 py-2.5 w-full relative bg-inherit rounded border border-[#128FC8] hover:border-[#0a518e] justify-between items-center gap-40 flex cursor-pointer  shadow-md
+        className={`cursor-pointer ${
+          expanded ? ' bg-[#ebebeb] overflow-hidden ' : 'bg-inherit '
+        } px-3.5 py-2.5 w-full relative bg-inherit rounded border border-[#6E7A8A] hover:border-[#6E7A8A] justify-between items-center gap-40 flex cursor-pointer  shadow-md
         `}
         ref={ref}
         onClick={() => {
           setExpanded(!expanded);
         }}
       >
-        <div className="flex text-xs font-bold text-neutral-400 bg-inherit">
+        <div className="flex text-xs font-bold text-[#B0B5BC] bg-inherit">
           {list[selectedItem]?.text && list[selectedItem]?.text}
           <span
-            className={`absolute w-5 h-5 top-1/2 -translate-y-1/2 transition-all text-sky-600 text-center text-xs font-bold right-2 ${
+            className={`absolute w-5 h-5 top-1/2 -translate-y-1/2 transition-all text-[#B0B5BC]text-center text-xs font-bold right-2 ${
               expanded && ' rotate-180'
             }`}
           >
@@ -136,7 +135,7 @@ const SelectBox = ({ list, onChangeHandle, label, value }) => {
               ? ' -top-[500px] translate-y-0 transition-all h-full '
               : ' top-16'
           } ${
-            mode ? 'bg-[#042433]' : 'bg-gray-300'
+            mode ? 'bg-[#000000]' : 'bg-gray-300'
           } z-50 transition-all overflow-y-auto h-40  p-4 text-white absolute -bottom-2 flex flex-col items-start w-full -left-0 border border-white rounded-xl`}
           style={{
             boxShadow:

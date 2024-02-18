@@ -8,13 +8,13 @@ const SidebarItem = ({ icon, label, onClickHandle, isSelected }) => {
     <div
       className={`py-5 border-b  ${
         mode
-          ? 'bg-[#072431] hover:bg-[#051a24] '
-          : 'bg-[#f1f1f1] hover:bg-[#d7d7d7] '
+          ? 'bg-[#000000] hover:bg-[#0084C9] '
+          : 'bg-[#f1f1f1] hover:bg-[#6E7A8A] '
       } cursor-pointer transition-all ${
         isSelected
           ? mode
-            ? 'bg-[#010813] border-[#128FC8] border-y'
-            : 'bg-[#a7a7a7] border-[#128FC8] border-y'
+            ? 'bg-[#010813] border-[#000000] border-y'
+            : 'bg-[#a7a7a7] border-[#000000] border-y'
           : mode
           ? 'border-[#5F5F5F] border-b'
           : 'border-[#ffffff] border-b'
@@ -24,10 +24,12 @@ const SidebarItem = ({ icon, label, onClickHandle, isSelected }) => {
       <div
         className={`flex items-center px-10 gap-7 ${
           isSelected
-            ? ' text-[#128FC8] '
+            ? mode
+            ? 'text-[#FFFFFF]'
+            : 'text-[#263238]'
             : mode
-            ? 'text-[#ffffff]'
-            : 'text-[#5F5F5F]'
+            ? 'text-[#D9D9D9]'
+            : 'text-[#6E7A8A]'
         } transition-all`}
       >
         {icon}

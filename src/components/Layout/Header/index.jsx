@@ -31,14 +31,14 @@ const Header = ({
   return (
     <div
       className={`${
-        mode ? 'bg-[#042433] text-[#ffffff]' : 'bg-[#ffffff] text-[#010813]'
+        mode ? 'bg-[#000000] text-[#ffffff]' : 'bg-[#ffffff] text-[#010813]'
       } flex flex-row flex-wrap justify-between items-center sm:py-[34px] py-[20px] font-inter absolute top-0 w-full`}
     >
       {/* Mobile Breadcrumb */}
 
       <div
         className={`absolute left-0 z-10 flex flex-row justify-start w-full h-screen p-12 overflow-hidden transition-all ${
-          mode ? 'bg-[#042433] text-[#ffffff]' : 'bg-[#ffffff] text-[#010813]'
+          mode ? 'bg-[#000000] text-[#ffffff]' : 'bg-[#ffffff] text-[#010813]'
         } lg:hidden ${
           isMobileMenuOpen
             ? ' max-h-screen sm:top-32 top-20'

@@ -128,7 +128,7 @@ export default function SelectBox({
             <div className="relative">
               <Listbox.Button
                 className={`relative w-full py-2 pl-3 pr-10 text-left border border-gray-400 rounded-md shadow-sm cursor-default text-neutral-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm ${
-                  mode ? 'bg-[#042433]' : 'bg-gray-300'
+                  mode ? 'bg-[#000000]' : 'bg-gray-300'
                 }`}
               >
                 <div className="flex items-center space-x-2">

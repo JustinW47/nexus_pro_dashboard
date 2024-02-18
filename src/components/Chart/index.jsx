@@ -262,7 +262,7 @@ const PriceChart = ({
       <div className="flex flex-col items-center w-full gap-5">
         <div
           className={`flex items-center justify-center gap-5 mb-4  ${
-            mode ? 'text-white' : 'text-blue-600'
+            mode ? 'text-white bg-black' : 'text-blue-600 bg-white'
           } transition-all`}
         >
           <div
@@ -318,7 +318,9 @@ const PriceChart = ({
         </div>
       </div>
       <div className="relative flex w-full">
-        <canvas ref={canvasRef} width={'100%'} height={'50%'}></canvas>
+        <canvas ref={canvasRef} width={'100%'} height={'50%'} className={`${
+            mode ? 'text-white bg-black' : 'text-blue-600 bg-white'
+          } rounded-xl`}></canvas>
         <div className="absolute w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
           {loading ? (
             <ThreeDots
@@ -333,17 +335,17 @@ const PriceChart = ({
       </div>
       <Board>
         <div className="flex flex-col items-center gap-5">
-          <span className="flex w-fit">{mode ? image_dark : image_light}</span>
-          <span>
+          {/* <span className="flex w-fit">{mode ? image_dark : image_light}</span> */}
+          {/* <span>
             {loadingRate || rate === null ? (
               <SpinningCircles stroke="#007bff" speed={1.5} fill="#007bff" />
             ) : (
               Number(rate).toFixed(2) + ' $'
             )}
-          </span>
+          </span> */}
           <div className="relative flex flex-wrap items-center justify-center w-3/4 gap-3 text-lg font-semibold">
-            <div className="flex flex-col items-start justify-start gap-2 text-gray-500">
-              <input
+            <div className="flex flex-col items-start justify-start gap-2 text-gray-500 w-full">
+              {/* <input
                 className="w-full py-2 bg-inherit text-center border rounded-md border-[#5F5F5F]"
                 // defaultValue={value}
                 type="text"
@@ -354,7 +356,26 @@ const PriceChart = ({
                 {rate !== null
                   ? parseFloat(rate * Number(inputValue)).toFixed(2) + ' $'
                   : 0 + ' $'}
-              </span>
+              </span> */}
+              <div className="relative mt-2 rounded-md shadow-sm  w-full">
+                <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 border border-1 border-r-0  border-[#6E7A8A]  rounded-l-md dark:bg-[#000000]">
+                  <span className="text-[#263238] dark:text-[#D9D9D9] text-sm py-2 lg:text-[16px]">EU/US</span>
+                </div>
+                <input
+                  type="text"
+                  name="price"
+                  id="price"
+                  className="block w-full rounded-md border border-1 border-[#6E7A8A] py-2 pl-16 lg:pl-20 pr-20 text-gray-900  placeholder:text-[#6E7A8A] dark:bg-[#000000] dark:text-[#6E7A8A] text-sm lg:text-[14px] lg:leading-6"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                  placeholder={`${rate !== null
+                    ? Number(rate).toFixed(2)
+                    : 0.00}`}
+                />
+                <div className="absolute inset-y-0 right-2 flex items-center">
+                  <span className="text-sm lg:text-[16px]">$</span>
+                </div>
+              </div>
             </div>
             <BuyToken
               buttonTitle={`${t('buy')} ${title}`}

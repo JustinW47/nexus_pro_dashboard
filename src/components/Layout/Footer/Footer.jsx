@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="flex flex-col px-5 md:border-r-2 border-b-2 md:border-b-0 border-b-[#B5DCEE33] md:min-h-[200px] md:border-r-[#B5DCEE33] border-opacity-50 w-full md:w-[30%] gap-5">
           <span
             className={`text-4xl font-bold  transition-all ${
-              mode ? 'text-[#042433]' : 'text-[#ffffff]'
+              mode ? 'text-[#000000]' : 'text-[#ffffff]'
             } `}
           >
             Driving the Future of Money
@@ -24,7 +24,7 @@ const Footer = () => {
         <div className="flex flex-col px-5 border-r-2 border-b-2 md:border-b-0 border-b-[#B5DCEE33] border-r-[#B5DCEE33] border-opacity-50 w-1/2 md:w-[20%]  gap-5 min-h-[200px]">
           <span
             className={`text-3xl font-bold transition-all ${
-              mode ? 'text-[#042433]' : 'text-[#ffffff]'
+              mode ? 'text-[#000000]' : 'text-[#ffffff]'
             }`}
           >
             Company
@@ -47,7 +47,7 @@ const Footer = () => {
         <div className="flex flex-col px-5 md:border-r-2 border-b-2 md:border-b-0 border-b-[#B5DCEE33] md:border-r-[#B5DCEE33] border-opacity-50 w-1/2 md:w-[20%]  gap-5 min-h-[200px]">
           <span
             className={`text-3xl font-bold transition-all ${
-              mode ? 'text-[#042433]' : 'text-[#ffffff]'
+              mode ? 'text-[#000000]' : 'text-[#ffffff]'
             }`}
           >
             Resources
@@ -70,7 +70,7 @@ const Footer = () => {
         <div className="flex flex-col px-5 w-full md:w-[30%] gap-5 min-h-[200px]">
           <span
             className={`text-xl font-semibold transition-all ${
-              mode ? 'text-[#042433]' : 'text-[#ffffff]'
+              mode ? 'text-[#000000]' : 'text-[#ffffff]'
             }`}
           >
             Driving the Future of Money

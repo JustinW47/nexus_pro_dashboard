@@ -25,7 +25,7 @@ const CryptoPayment = () => {
       <div className="relative flex flex-col gap-5">
         <div
           className={`${
-            mode ? 'text-[#ffffff]' : 'text-[#042433]'
+            mode ? 'text-[#ffffff]' : 'text-[#000000]'
           } text-base font-semibold`}
         >
           {t('selectCoin')}
@@ -46,7 +46,7 @@ const CryptoPayment = () => {
         <div className="flex flex-col gap-3">
           <div
             className={`text-base font-semibold ${
-              mode ? 'text-[#ffffff]' : 'text-[#042433]'
+              mode ? 'text-[#ffffff]' : 'text-[#000000]'
             }`}
           >
             {t('depositTo')}
@@ -65,7 +65,7 @@ const CryptoPayment = () => {
         <div className="top-[323px]">
           <div
             className={` text-base font-semibold ${
-              mode ? 'text-[#ffffff]' : 'text-[#042433]'
+              mode ? 'text-[#ffffff]' : 'text-[#000000]'
             } `}
           >
             {t('address')}

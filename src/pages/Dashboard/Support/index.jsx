@@ -13,14 +13,14 @@ const Support = () => {
   return (
     <div
       className={`w-full overflow-y-auto h-[85%] inline-block dark font-bold rounded-2xl text-xs leading-normal transition duration-150 ease-in-out border-[#128FC8] border-2 ${
-        mode ? 'bg-[#042433]' : 'bg-[#ffffff]'
+        mode ? 'bg-[#000000]' : 'bg-[#ffffff]'
       } dark:text-gray py-5 text-[#128FC8] transition-all shadow-[4px_3px_13px_0px_rgba(18,143,200,1)] flex justify-center`}
     >
       <div className="flex flex-col items-start w-full gap-5 px-12 py-12">
         <div className="flex flex-wrap w-full gap-5 lg:justify-between justify-start md:flex-row flex-col">
           <div
             className={`flex flex-col gap-7 lg:w-[45%] w-full ${
-              !mode ? 'text-[#042433]' : 'text-[#ffffff]'
+              !mode ? 'text-[#000000]' : 'text-[#ffffff]'
             }
         `}
           >

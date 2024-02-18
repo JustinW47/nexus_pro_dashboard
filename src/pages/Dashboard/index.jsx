@@ -122,7 +122,7 @@ const Dashboard = ({ changeLanguage }) => {
   return (
     <div
       className={`${
-        mode ? 'bg-[#042433]' : 'bg-[#ffffff]'
+        mode ? 'bg-[#000000]' : 'bg-[#ffffff]'
       } transition-all h-screen flex w-full pt-32 px-2 `}
     >
       <div className="relative flex w-full h-[99%] gap-5">

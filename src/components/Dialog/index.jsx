@@ -31,7 +31,7 @@ export function DialogCustom({
         }}
         size={size ? size : 'md'}
         className={`shadow-none ${
-          mode ? ' bg-[#042433] text-white ' : 'bg-[#ffffff]'
+          mode ? ' bg-[#000000] text-white ' : 'bg-[#ffffff]'
         }`}
       >
         <DialogHeader className={`${mode ? 'text-white' : ''}`}>
