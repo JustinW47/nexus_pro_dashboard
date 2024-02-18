@@ -110,7 +110,7 @@ const SelectBox = ({ list, onChangeHandle, label, value }) => {
       <div
         className={`cursor-pointer ${
           expanded ? ' bg-[#ebebeb] overflow-hidden ' : 'bg-inherit '
-        } px-3.5 py-2.5 w-full relative bg-inherit rounded border border-[#6E7A8A] hover:border-[#6E7A8A] justify-between items-center gap-40 flex cursor-pointer  shadow-md
+        } px-3.5 py-4 w-full relative bg-inherit rounded border border-[#6E7A8A] hover:border-[#6E7A8A] justify-between items-center gap-40 flex cursor-pointer  shadow-md
         `}
         ref={ref}
         onClick={() => {

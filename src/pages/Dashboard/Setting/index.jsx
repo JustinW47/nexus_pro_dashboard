@@ -275,7 +275,7 @@ const Setting = ({ changeLanguage }) => {
               </div>
             </div> */}
 
-            <div className='flex flex-col w-full md:w-1/3 px-10 gap-4'>
+            <div className='flex flex-col w-full md:w-1/2 px-10 gap-4'>
               <SelectBox
                 value={selectedLanguageId}
                 label="Language"
@@ -327,27 +327,131 @@ const Setting = ({ changeLanguage }) => {
                 }))}
               />
 
-              <div className='w-full flex justify-center items-center'>
-                <div className='w-1/2 flex flex-row justify-between'>
-                  <label className='text-[#B0B5BC]'>
-                    {t('Light Mode')}
-                  </label>
-                  <input
-                    name='display_mode'
-                    type='radio'
-                    id='light_mode'
-                  />
+              <div className='flex flex-col gap-2'>
+                <span
+                  className={`text-base font-medium ${
+                    mode ? 'text-[#D9D9D9]' : 'text-[#000000]'
+                  }`}
+                >
+                  Template
+                </span>
+                <div className='w-full flex flex-col md:flex-row justify-center items-center gap-2'>
+                  <div className='w-1/2 flex flex-row justify-between p-4 border border-[#263238] rounded-md cursor-pointer'>
+                    <label className='text-[#B0B5BC] text-[12px] w-full cursor-pointer' htmlFor='light_mode'>
+                      {t('Light Mode')}
+                    </label>
+                    <input
+                      name='display_mode'
+                      type='radio'
+                      id='light_mode'
+                      className='outline-none text-[#0084C9]'
+                      value='light'
+                    />
+                  </div>
+                  <div className='w-1/2 flex flex-row justify-between p-4 border border-[#263238] rounded-md cursor-pointer'>
+                    <label className='text-[#B0B5BC] text-[12px] w-full cursor-pointer' htmlFor='dark_mode'>
+                      {t('Dark Mode')}
+                    </label>
+                    <input
+                      name='display_mode'
+                      type='radio'
+                      id='dark_mode'
+                      className='outline-none text-[#0084C9]'
+                      value='dark'
+                      checked
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex flex-col w-full">
+                <span
+                  className={`  text-[14px] font-medium ${
+                    mode ? 'text-[#D9D9D9]' : 'text-[#5F5F5F]'
+                  }`}
+                >
+                  {t('Platform')}
+                </span>
+                <div className="flex items-center p-4 gap-3 border rounded-lg border-[#263238] w-full">
+                  <span className="w-6 h-6 p-1 text-center text-white transition-all bg-gray-600 rounded-full cursor-pointer hover:opacity-70">
+                    -
+                  </span>
+                  <span>00</span>
+                  <span className="w-6 h-6 p-1 text-center text-white transition-all bg-gray-600 rounded-full cursor-pointer hover:opacity-70">
+                    +
+                  </span>
                 </div>
               </div>
 
             </div>
 
-            <div className='flex flex-col w-full md:w-1/3 px-10'>
+            {/* <div className='flex flex-col w-full md:w-1/3 px-10'>
               2
-            </div>
+            </div> */}
 
-            <div className='flex flex-col w-full md:w-1/3 px-10'>
-              3
+            <div className='flex flex-col w-full md:w-1/2 gap-4 pr-8'>
+              <div className="w-full flex flex-col gap-2">
+                <span
+                  className={`  text-[14px] font-medium ${
+                    mode ? 'text-[#D9D9D9]' : 'text-[#5F5F5F]'
+                  }`}
+                >
+                  {t('Graphic Colors')}
+                </span>
+                <div className="flex flex-col items-start w-full">
+                  <div className="w-full flex flex-col md:flex-row items-center gap-3 justify-between">
+                    <div className="w-1/2 flex flex-row items-center  border border-[#6E7A8A] p-3 justify-between rounded-md">
+                      <span
+                        className={`text-[12px] font-medium ${
+                          mode ? 'text-[#D9D9D9]' : 'text-[#5F5F5F]'
+                        }`}
+                      >
+                        {t('Up Trend')}:
+                      </span>
+                      <ColorSelectBox onChangeHandle={() => {}} />
+                    </div>
+                    <div className="w-1/2 flex flex-row items-center  border border-[#6E7A8A] p-3 justify-between rounded-md">
+                      <span
+                        className={`text-[12px] font-medium ${
+                          mode ? 'text-[#D9D9D9]' : 'text-[#5F5F5F]'
+                        }`}
+                      >
+                        {t('Down Trend')}:
+                      </span>
+                      <ColorSelectBox onChangeHandle={() => {}} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className='w-full flex flex-col gap-2'>
+                <span
+                  className={`  text-[14px] font-medium ${
+                    mode ? 'text-[#D9D9D9]' : 'text-[#5F5F5F]'
+                  }`}
+                >
+                  {t('Background')}
+                </span>
+                <div className="relative flex w-full">
+                  <UploadPhoto
+                    is_Connected={true}
+                    user={''} //user}
+                    onChanged={() => {
+                      // onAvatarChanged()
+                    }}
+                    title={
+                        <div className='flex w-full px-3.5 py-3'>
+                          <span
+                            className={`text-[12px] font-medium text-[#B0B5BC]`}
+                          >
+                            {t('Choose File (max size - 2 mb)')}
+                          </span>
+                        </div>
+                    }
+                    availableChange={() => {}}
+                  />
+                </div>
+              </div>
             </div>
 
           </div>

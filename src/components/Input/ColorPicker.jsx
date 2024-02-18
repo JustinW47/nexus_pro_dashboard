@@ -24,7 +24,7 @@ export default function ColorSelectBox({ onChangeHandle }) {
 
   return (
     <div className="flex items-center">
-      <div className="mt-4 flex items-center space-x-3 bg-gray-200 p-3 rounded-full">
+      <div className="flex items-center space-x-3 px-3.5 py-1.5 rounded-full">
         {colors.map((color, i) => (
           <div
             key={i}
@@ -46,7 +46,7 @@ export default function ColorSelectBox({ onChangeHandle }) {
               ${color.selectedColor} 
               ${
                 colorSelectedStatus[i] ? 'ring-2' : ''
-              } -m-0.5 relative cursor-pointer p-0.5 rounded-full flex items-center justify-center focus:outline-none `}
+              } relative cursor-pointer rounded-full flex items-center justify-center focus:outline-none `}
           >
             <span as="span" className="sr-only">
               {color.name}
@@ -55,7 +55,7 @@ export default function ColorSelectBox({ onChangeHandle }) {
               aria-hidden="true"
               className={`
                 ${color.bgColor} 
-                h-8 w-8 rounded-full text-green-800 relative border border-gray-500
+                h-[10px] w-[10px] rounded-full text-green-800 relative border border-gray-500
               `}
             >
               {colorSelectedStatus[i] ? (

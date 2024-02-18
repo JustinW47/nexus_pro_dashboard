@@ -1,17 +1,33 @@
 import { useState } from 'react';
 
-const DropDown = ({ content }) => {
+const DropDown = ({ content, description }) => {
   const [expended, setexpended] = useState(false);
   return (
     <div
-      className="flex justify-start sm:gap-6 gap-2 pb-1 cursor-pointer md:text-base text-sm"
+      className="flex justify-between cursor-pointer border border-[#6E7A8A] mt-2 p-2"
       onClick={() => {
         setexpended(!expended);
       }}
     >
-      <div className="w-8 h-8">
+      
+      <div className="flex flex-col">
+        <span className='text-sm text-[#B0B5BC] text'>{content}</span>
         <span
-          className={`cursor-pointer hover:opacity-70 transition-all duration-500 ${
+          className={` transition-[2s] ${
+            expended ? ' max-h-4xl mt-4' : 'max-h-0'
+          } h-fit text-xs text-[#6E7A8A] leading-5`}
+        >
+          {
+            expended ?
+              description !== undefined ? description : ''
+              : ''
+          }
+        </span>
+      </div>
+
+      <div className="w-6 h-6 flex items-start">
+        <span
+          className={`cursor-pointer hover:opacity-70 transition-all duration-500 text-[#6E7A8A] ${
             expended ? ' rotate-180 ' : 'rotate-0'
           }`}
         >
@@ -21,9 +37,7 @@ const DropDown = ({ content }) => {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className={`w-6 h-6 cursor-pointer hover:opacity-70 transition-all duration-500${
-              expended ? ' rotate-180' : 'rotate-0'
-            }`}
+            className={`w-6 h-6 cursor-pointer hover:opacity-70 transition-all duration-500`}
           >
             <path
               strokeLinecap="round"
@@ -32,14 +46,6 @@ const DropDown = ({ content }) => {
             />
           </svg>
         </span>
-      </div>
-      <div className="flex flex-col">
-        <span>{content}</span>
-        <span
-          className={` transition-[2s] ${
-            expended ? ' max-h-4xl' : 'max-h-0'
-          } h-16 bg-gray_md`}
-        ></span>
       </div>
     </div>
   );

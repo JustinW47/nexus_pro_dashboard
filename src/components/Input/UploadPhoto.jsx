@@ -182,9 +182,9 @@ const UploadPhoto = ({
   return (
     <div className="relative flex justify-center w-full">
       <div
-        className={` rounded-lg brightness-100 border-[2px] border-dotted border-[#159ede] bg-[#084562] ${
+        className={` rounded-lg brightness-100 border-[2px] border-dotted border-[#B0B5BC] bg-[#263238] ${
           availableChange ? ' hover:brightness-50 cursor-pointer' : ' '
-        } transition-all md:h-40 sm:h-28 w-full h-20 `}
+        } transition-all  w-full`}
         onClick={() => {
           if (is_Connected && availableChange) {
             imgButton.current.click();
