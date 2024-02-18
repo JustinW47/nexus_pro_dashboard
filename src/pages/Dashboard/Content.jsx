@@ -34,7 +34,7 @@ const DashboardContent = () => {
 
   return (
     <div
-      className={`w-full overflow-y-auto h-[85%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out ${
+      className={`w-full overflow-y-auto h-[95%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out ${
         mode ? 'bg-[#263238]' : 'bg-[#ffffff]'
       } dark:text-gray py-5 text-[#128FC8] transition-all `}
     >

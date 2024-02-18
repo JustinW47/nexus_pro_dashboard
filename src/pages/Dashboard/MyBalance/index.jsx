@@ -78,9 +78,9 @@ const MyBalance = () => {
 
   return (
     <div
-      className={`w-full overflow-y-auto h-[85%] dark font-bold rounded-2xl text-xs leading-normal transition duration-150 ease-in-out flex flex-col justify-start items-center ${
+      className={`w-full overflow-y-auto h-[95%] dark font-bold rounded-2xl text-xs leading-normal transition duration-150 ease-in-out flex flex-col justify-start items-center ${
         mode ? 'bg-[#263238]' : 'bg-[#EBF5FB]'
-      } dark:text-gray text-[#128FC8] transition-all  p-10`}
+      } dark:text-gray text-[#128FC8] transition-all p-10`}
     >
       <div className="flex flex-col justify-between w-full">
         <div className="flex p-[10px] bg-[#FFFFFF] dark:bg-[#181F23] w-full rounded-[20px] mb-4">

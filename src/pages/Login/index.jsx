@@ -61,7 +61,7 @@ function Login({ setSelectedPage }) {
   else
     return (
       <div
-        className={`from-[#ffffff] via-[#CBE6F3] to-[#128FC8] bg-gradient-to-r flex flex-1 h-fit`}
+        className={`from-[#ffffff] via-[#CBE6F3] to-[#128FC8] bg-gradient-to-r flex flex-1 h-fit dark dark:bg-[#263238]`}
       >
         <div
           className="flex flex-col w-full h-screen gap-10 pt-10 overflow-y-auto md:gap-16 sm:pt-24 lg:pt-25"

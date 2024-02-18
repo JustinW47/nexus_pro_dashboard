@@ -75,7 +75,7 @@ const TradingHistory = () => {
 
   return (
     <div
-      className={`w-full h-[85%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out ${
+      className={`w-full h-[95%] inline-block dark font-bold rounded-2xl text-xs uppercase leading-normal transition duration-150 ease-in-out ${
         mode ? 'bg-[#263238]' : 'bg-[#EBF5FB]'
       } dark:text-gray p-8 text-[#128FC8] transition-all`}
     >
