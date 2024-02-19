@@ -369,7 +369,7 @@ const PriceChart = ({
                   value={inputValue}
                   onChange={handleInputChange}
                   placeholder={`${rate !== null
-                    ? Number(rate).toFixed(2)
+                    ? Number(rate).toFixed(4)
                     : 0.00}`}
                 />
                 <div className="absolute inset-y-0 right-2 flex items-center">
@@ -383,8 +383,9 @@ const PriceChart = ({
               value={
                 rate === null
                   ? null
-                  : parseFloat(rate * Number(inputValue)).toFixed(2)
+                  : parseFloat(rate * Number(inputValue)).toFixed(4)
               }
+              originValue={Number(inputValue).toFixed(4)}
             />
           </div>
         </div>

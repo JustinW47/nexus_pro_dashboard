@@ -32,7 +32,6 @@ const Checkout = ({ description, amount, crypto_amount, wallet_address, stripeRe
     return /\S+@\S+\.\S+/.test(email);
   }
 
-  console.log('---------------------- ', description, amount, crypto_amount, stripeRef)
   const successPayment = async (data) => {
     showToast(
       `Sent Invoice for ${amount}$ to Your Email, Please Confirm!`,
@@ -84,7 +83,6 @@ const Checkout = ({ description, amount, crypto_amount, wallet_address, stripeRe
   if (setting.isLoading || StripeCheckout === undefined) <></>;
   return (
     <div>
-      {console.log("dddddddddddddddddd", amount)}
       <StripeCheckout
         name={'Payment'}
         description={'Description'}

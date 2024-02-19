@@ -11,16 +11,13 @@ import axios from 'axios';
 import { useUSEURate } from 'hooks/useUSEURate';
 import { useEUUSRate } from 'hooks/useEUUSRate';
 import { useETHRate } from 'hooks/useETHRate';
+import { useUserData } from 'UserDataContext';
 
 const BuyTokenDialog = ({ isOpen, setOpen, token, value }) => {
   const { t } = useTranslation(); // Use the useTranslation hook
   const [inputValueFiat, setinputValueFiat] = useState(Number(value));
   const [inputValueCrypto, setinputValueCrypto] = useState(Number(value));
 
-  useEffect(() => {
-    setinputValueFiat(value);
-    setinputValueCrypto(value);
-  }, [value]);
   const stripeButton = useRef(null);
   const [selectedCoin, setSelectedCoin] = useState({});
   const [estimatedOutInFiat, setEstimatedOutInFiat] = useState(0);
@@ -29,29 +26,60 @@ const BuyTokenDialog = ({ isOpen, setOpen, token, value }) => {
   const useuInitialData = useUSEURate();
   const ethPrice = useETHRate();
 
+  const { userData } = useUserData();
+
+
   useEffect(() => {
-    if((token === "EU/US" && euusInitialData.isFetched === true) || (token==="US/EU" && useuInitialData.isFetched === true)) {
+    setinputValueFiat(value);
+    setinputValueCrypto(value);
+  }, [value]);
+
+  useEffect(() => {
+    if ((token === "EU/US" && euusInitialData.isFetched === true) || (token === "US/EU" && useuInitialData.isFetched === true)) {
       setEstimatedOutInFiat(Number(inputValueFiat / (token === "EU/US" ? euusInitialData.data.data.message : useuInitialData.data.data.message)).toFixed(2));
     }
   }, [inputValueFiat, euusInitialData, useuInitialData, token])
 
-  console.log("===================", selectedCoin)
   useEffect(() => {
-    if(ethPrice.isFetched === true) {
-      if((token === "EU/US" && euusInitialData.isFetched === true) || (token==="US/EU" && useuInitialData.isFetched === true)) {
+    if (ethPrice.isFetched === true) {
+      if ((token === "EU/US" && euusInitialData.isFetched === true) || (token === "US/EU" && useuInitialData.isFetched === true)) {
         let priceOfToken = 0;
-        if(token === "EU/US"){
+        if (token === "EU/US") {
           priceOfToken = euusInitialData.data.data.message;
         } else {
           priceOfToken = useuInitialData.data.data.message;
         }
-        setEstimatedOutInCrypto(Number(inputValueCrypto*ethPrice.data.data.message / priceOfToken).toFixed(2));
+        setEstimatedOutInCrypto(Number(inputValueCrypto * ethPrice.data.data.message / priceOfToken).toFixed(2));
       }
     }
   }, [ethPrice, euusInitialData, inputValueCrypto, selectedCoin, token, useuInitialData])
 
   const buyWithCrypto = async (coin, amount) => {
-    console.log('-------------------------------------------', coin, amount)
+    console.log('-------------------------------------------', userData)
+    const instance = axios.create({
+      baseURL: process.env.REACT_APP_BACKEND_URL + '/api'
+    });
+
+    // Set the Authorization header with the token
+    instance.interceptors.request.use(
+      (config) => {
+        const token = localStorage.getItem('token');
+        if (token) {
+          config.headers.Authorization = token;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
+      }
+    );
+    const tx = await instance.post(`/transaction/tx_crypto/`, {
+      coin: coin,
+      amount: amount,
+      userId: userData.id,
+      wallet: userData.wallet
+    });
+    console.log("----------- tx ------------", tx)
   }
 
   return (
@@ -136,10 +164,8 @@ const BuyTokenDialog = ({ isOpen, setOpen, token, value }) => {
                           return Promise.reject(error);
                         }
                       );
-                      console.log("-------- v --------", v)
                       const coinData = await instance.get(`/coin_network/coins/${v}`);
                       if (coinData.status === 200) {
-                        console.log(coinData.data);
                         setSelectedCoin(coinData.data);
                       }
                     }}
@@ -155,16 +181,16 @@ const BuyTokenDialog = ({ isOpen, setOpen, token, value }) => {
                     prefix={selectedCoin.symbol}
                   />
                 </div>
-              <div className='flex w-full items-center justify-center mt-4'>
-                You will get <span className='text-white font-bold mx-[5px]'>{estimatedOutInCrypto}</span> {token}
-              </div>
+                <div className='flex w-full items-center justify-center mt-4'>
+                  You will get <span className='text-white font-bold mx-[5px]'>{estimatedOutInCrypto}</span> {token}
+                </div>
               </div>
               <div className="flex w-full items-center justify-center">
                 <ButtonDark
                   label={t('Buy with Crypto')} // Translate the button label
                   onClickHandle={async () => {
                     console.log("selected coin => ", selectedCoin)
-                    await buyWithCrypto(selectedCoin._id, inputValueCrypto);
+                    await buyWithCrypto(selectedCoin, inputValueCrypto);
                   }}
                 />
               </div>

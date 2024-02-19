@@ -75,7 +75,8 @@ const DashboardContent = () => {
               from="EUR"
               to="USD"
               rate={euusRate}
-              loadingRate={euusInitialData?.isLoading}
+              loadingRate={useuInitialData?.isLoading}
+
               image_dark={
                 <img
                   src={

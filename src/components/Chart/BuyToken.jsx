@@ -3,7 +3,7 @@ import BuyTokenDialog from 'components/Dialog/BuyToken';
 import ButtonGreen from 'components/Input/Button_green';
 import useToast from 'hooks/useToast';
 
-const BuyToken = ({ buttonTitle, token, value }) => {
+const BuyToken = ({ buttonTitle, token, value, originValue }) => {
   const [openDialog, setopenDialog] = useState(false);
   const { showToast } = useToast();
 
@@ -16,6 +16,7 @@ const BuyToken = ({ buttonTitle, token, value }) => {
         isOpen={openDialog}
         token={token}
         value={value}
+        orginValue={originValue}
       />
       <ButtonGreen
         label={buttonTitle}
